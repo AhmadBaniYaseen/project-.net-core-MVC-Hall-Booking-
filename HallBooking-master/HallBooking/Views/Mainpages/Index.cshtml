@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HallBooking.Models.Mainpage>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h1>Home Page</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Companylogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Companyemail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Companyphone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Companylogo)
+            </td>
+            <td>
+                <img src=@Url.Content("~/Images/"+item.Image2) style="border-radius:20%;" width="100" height="100" />
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Companyemail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Companyphone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Homeid">Edit</a> |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

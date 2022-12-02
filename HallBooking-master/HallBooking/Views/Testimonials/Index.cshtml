@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HallBooking.Models.Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h1>Testmoninal</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Fullname)
+                </td>
+                @if (item.Status == true)
+                {
+                    <td>
+                        Accepted
+
+                    </td>
+                }
+                else if (item.Status == false)
+                {
+                    <td>
+                        Rejected
+
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Under process
+
+                    </td>
+                }
+                <td>
+                    <a style="padding:5px" class="btn-info" asp-action="Edit" asp-route-id="@item.Testmoninalid">Accept or Reject</a>
+                    <a style="padding:5px" class="btn-danger" asp-action="Delete" asp-route-id="@item.Testmoninalid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

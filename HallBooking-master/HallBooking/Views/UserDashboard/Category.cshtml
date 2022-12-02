@@ -1,0 +1,141 @@
+﻿@model IEnumerable<HallBooking.Models.Hallcategory>
+
+@{
+    Layout = "~/Views/Shared/User.cshtml";
+
+}
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url('/images/C.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/Useraccounts/UserEdit/@ViewBag.Userid">Edit Profile</a></span> <span></span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Category</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-lg-3 sidebar order-md-last ftco-animate">
+
+                <div >
+                    <a class="btn btn-primary py-3 px-5" href="/Useraccounts/UserEdit/@ViewBag.Userid">Edit Profile</a>
+                    @*<input  type="submit" value="Edit Profile" class="btn btn-primary py-3 px-5">*@
+                </div>
+            <br />
+            <br />
+                <div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Find Category</h3>
+                    <form asp-action="Category" method="post">
+                        <div class="fields">
+                            <div class="form-group">
+                                <input type="text" name="category" class="form-control" placeholder="Search in categories...">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div><!-- END-->
+            <div class="col-lg-9">
+               
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm col-md-6 col-lg ftco-animate">
+                            <div class="destination">
+                                <img src=@Url.Content("~/Images/" + item.Imagepath)  width="300" height="300" />
+                                @*<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-link"></span>
+                        </div>
+                    </a>*@
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="#">@item.Name</a></h3>
+                                            <p class="rate">
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star-o"></i>
+                                                <span>8 Rating</span>
+                                            </p>
+                                        </div>
+                                        @*<div class="two">
+                                <span class="price">$200</span>
+                            </div>*@
+                                    </div>
+                                    
+                                    <hr>
+                                    <p class="bottom-area d-flex">
+                                        <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                        <span class="ml-auto"><a href="/UserDashboard/Index/@item.Categoryid">Halls</a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    </div>
+                
+
+            </div> <!-- .col-md-8 -->
+        </div>
+    </div>
+</section> <!-- .section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

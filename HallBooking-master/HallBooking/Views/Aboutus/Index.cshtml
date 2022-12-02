@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HallBooking.Models.Aboutu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h1>Aboutus</h1>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Text1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text8)
+            </td>
+            <td>
+                <img src=@Url.Content("~/Images/"+item.Image) style="border-radius:20%;" width="100" height="100" />
+
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Aboutid">Edit</a> |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
